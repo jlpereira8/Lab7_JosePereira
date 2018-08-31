@@ -25,7 +25,11 @@ public class Princi extends javax.swing.JFrame {
      */
     public Princi() {
         initComponents();
-
+        administrar_personas ap = new administrar_personas("./Personas.txt");
+        ap.cargarArchivo();
+        for (Persona l : ap.getListaPersonas()) {
+            System.out.println("User: "+l.getNombre()+" || Contra: "+l.getContra());
+        }
     }
 
     /**
