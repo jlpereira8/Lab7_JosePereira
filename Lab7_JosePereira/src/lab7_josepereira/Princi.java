@@ -653,7 +653,16 @@ public class Princi extends javax.swing.JFrame {
         int q22 = Integer.parseInt(opc222);
         if (q == 0) {
             nodo_seleccionado = ((Peliculas) ((DefaultMutableTreeNode) raiz.getChildAt(q).getChildAt(q2).getChildAt(q22)).getUserObject());
-            JOptionPane.showMessageDialog(this,"Categoria "+nodo_seleccionado.getCategoria()+"\nCompania"+nodo_seleccionado.getCompania());
+            JOptionPane.showMessageDialog(this, "Nombre " + nodo_seleccionado.getNombre() + "\nCategoria " + nodo_seleccionado.getCategoria() + "\nCompania " + nodo_seleccionado.getCompania() + "\nDirector " + nodo_seleccionado.getDirector()
+                    + "\nDoblaje " + nodo_seleccionado.getDoblaje_si_no() + "\nIdioma " + nodo_seleccionado.getIdioma() + "\nSubtitulos " + nodo_seleccionado.getSubtitulos_si_no() + "\nDuracion " + nodo_seleccionado.getDuracion_minutos()
+                    + "\nActores " + nodo_seleccionado.getActores_Principales());
+        } else if (q == 1) {
+            //String nombre, int duracion_minutos, String Categoria, ArrayList<Actores_Principales_Series> Actores_Principales, 
+            //int num_temporadas, String productora, String idioma_original, String doblaje_si_no, String subt_si_no
+            nodo_seleccionado2 = ((Series) ((DefaultMutableTreeNode) raiz.getChildAt(q).getChildAt(q2).getChildAt(q22)).getUserObject());
+            JOptionPane.showMessageDialog(this, "Nombre " + nodo_seleccionado2.getNombre() + "\nDuracion " + nodo_seleccionado2.getDuracion_minutos() + "\nCategoria " + nodo_seleccionado2.getCategoria()
+                    + "\nNumero de Temporadas " + nodo_seleccionado2.getNum_temporadas() + "\nProductora " + nodo_seleccionado2.getProductora() + "\nIdioma Original " + nodo_seleccionado2.getIdioma_original()
+                    + "\nDoblaje " + nodo_seleccionado2.getDoblaje_si_no() + "\nSubtitulos " + nodo_seleccionado2.getSubt_si_no() + "\nActores " + nodo_seleccionado2.getActores_Principales());
         }
 
     }//GEN-LAST:event_jButton5MouseClicked
@@ -890,4 +899,5 @@ public class Princi extends javax.swing.JFrame {
 
     }
     Peliculas nodo_seleccionado;
+    Series nodo_seleccionado2;
 }

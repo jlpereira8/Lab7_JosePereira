@@ -112,8 +112,10 @@ public class Series {
 
     @Override
     public String toString() {
-        return "Series{" + "nombre=" + nombre + ", duracion_minutos=" + duracion_minutos + ", Categoria=" + Categoria + ", Actores_Principales=" + Actores_Principales + ", num_temporadas=" + num_temporadas + ", productora=" + productora + ", idioma_original=" + idioma_original + ", doblaje_si_no=" + doblaje_si_no + ", subt_si_no=" + subt_si_no + '}';
+        return nombre ;
     }
+
+    
 
    
    
