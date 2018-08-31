@@ -5,6 +5,8 @@
  */
 package lab7_josepereira;
 
+import java.util.ArrayList;
+
 /**
  *
  * Las series tienen Nombre, tiempo de duración en minutos por capítulos, categorías(tiene libertad para poner las categorías que quiera) 
@@ -14,7 +16,7 @@ public class Series {
     private String nombre;
     private int duracion_minutos;
     private String Categoria;
-    private String Actores_Principales;
+    private ArrayList<String> Actores_Principales;
     private int num_temporadas;
     private String productora;
     private String idioma_original;
@@ -24,7 +26,7 @@ public class Series {
     public Series() {
     }
 
-    public Series(String nombre, int duracion_minutos, String Categoria, String Actores_Principales, int num_temporadas, String productora, String idioma_original, String doblaje_si_no, String subt_si_no) {
+    public Series(String nombre, int duracion_minutos, String Categoria, ArrayList<String> Actores_Principales, int num_temporadas, String productora, String idioma_original, String doblaje_si_no, String subt_si_no) {
         this.nombre = nombre;
         this.duracion_minutos = duracion_minutos;
         this.Categoria = Categoria;
@@ -60,11 +62,11 @@ public class Series {
         this.Categoria = Categoria;
     }
 
-    public String getActores_Principales() {
+    public ArrayList<String> getActores_Principales() {
         return Actores_Principales;
     }
 
-    public void setActores_Principales(String Actores_Principales) {
+    public void setActores_Principales(ArrayList<String> Actores_Principales) {
         this.Actores_Principales = Actores_Principales;
     }
 
@@ -112,6 +114,6 @@ public class Series {
     public String toString() {
         return "Series{" + "nombre=" + nombre + ", duracion_minutos=" + duracion_minutos + ", Categoria=" + Categoria + ", Actores_Principales=" + Actores_Principales + ", num_temporadas=" + num_temporadas + ", productora=" + productora + ", idioma_original=" + idioma_original + ", doblaje_si_no=" + doblaje_si_no + ", subt_si_no=" + subt_si_no + '}';
     }
-    
-    
+
+   
 }

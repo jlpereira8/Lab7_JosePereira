@@ -5,6 +5,8 @@
  */
 package lab7_josepereira;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author j0c3lwiz
@@ -15,7 +17,7 @@ public class Peliculas {
     private String nombre;
     private int duracion_minutos;
     private String Categoria;
-    private String Actores_Principales;
+    private ArrayList<String> Actores_Principales;
     private String Director;
     private String Compania;
     private String idioma;
@@ -25,7 +27,9 @@ public class Peliculas {
     public Peliculas() {
     }
 
-    public Peliculas(String nombre, int duracion_minutos, String Categoria, String Actores_Principales, String Director, String Compania, String idioma, String doblaje_si_no, String subtitulos_si_no) {
+    
+    
+    public Peliculas(String nombre, int duracion_minutos, String Categoria, ArrayList<String> Actores_Principales, String Director, String Compania, String idioma, String doblaje_si_no, String subtitulos_si_no) {
         this.nombre = nombre;
         this.duracion_minutos = duracion_minutos;
         this.Categoria = Categoria;
@@ -61,11 +65,11 @@ public class Peliculas {
         this.Categoria = Categoria;
     }
 
-    public String getActores_Principales() {
+    public ArrayList<String> getActores_Principales() {
         return Actores_Principales;
     }
 
-    public void setActores_Principales(String Actores_Principales) {
+    public void setActores_Principales(ArrayList<String> Actores_Principales) {
         this.Actores_Principales = Actores_Principales;
     }
 
@@ -113,6 +117,8 @@ public class Peliculas {
     public String toString() {
         return "Peliculas{" + "nombre=" + nombre + ", duracion_minutos=" + duracion_minutos + ", Categoria=" + Categoria + ", Actores_Principales=" + Actores_Principales + ", Director=" + Director + ", Compania=" + Compania + ", idioma=" + idioma + ", doblaje_si_no=" + doblaje_si_no + ", subtitulos_si_no=" + subtitulos_si_no + '}';
     }
+
+   
     
     
     
