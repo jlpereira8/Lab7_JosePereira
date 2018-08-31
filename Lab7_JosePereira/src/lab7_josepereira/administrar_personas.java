@@ -82,9 +82,9 @@ public class administrar_personas {
                 while (sc.hasNext()) {
                     String nombre,contra;
                     String codigo;
-                    nombre=sc.next();
-                    contra=sc.next();
+                    nombre=sc.next();                   
                     codigo=sc.next();
+                    contra=sc.next();
                     listaPersonas.add(new Persona(nombre,contra,codigo));
                 }
             } catch (Exception e) {

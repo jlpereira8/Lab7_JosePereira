@@ -17,7 +17,7 @@ public class Peliculas {
     private String nombre;
     private int duracion_minutos;
     private String Categoria;
-    private ArrayList<String> Actores_Principales;
+    private ArrayList<Actores_Principales_Pelis> Actores_Principales;
     private String Director;
     private String Compania;
     private String idioma;
@@ -27,9 +27,7 @@ public class Peliculas {
     public Peliculas() {
     }
 
-    
-    
-    public Peliculas(String nombre, int duracion_minutos, String Categoria, ArrayList<String> Actores_Principales, String Director, String Compania, String idioma, String doblaje_si_no, String subtitulos_si_no) {
+    public Peliculas(String nombre, int duracion_minutos, String Categoria, ArrayList<Actores_Principales_Pelis> Actores_Principales, String Director, String Compania, String idioma, String doblaje_si_no, String subtitulos_si_no) {
         this.nombre = nombre;
         this.duracion_minutos = duracion_minutos;
         this.Categoria = Categoria;
@@ -65,11 +63,11 @@ public class Peliculas {
         this.Categoria = Categoria;
     }
 
-    public ArrayList<String> getActores_Principales() {
+    public ArrayList<Actores_Principales_Pelis> getActores_Principales() {
         return Actores_Principales;
     }
 
-    public void setActores_Principales(ArrayList<String> Actores_Principales) {
+    public void setActores_Principales(ArrayList<Actores_Principales_Pelis> Actores_Principales) {
         this.Actores_Principales = Actores_Principales;
     }
 
@@ -118,6 +116,9 @@ public class Peliculas {
         return "Peliculas{" + "nombre=" + nombre + ", duracion_minutos=" + duracion_minutos + ", Categoria=" + Categoria + ", Actores_Principales=" + Actores_Principales + ", Director=" + Director + ", Compania=" + Compania + ", idioma=" + idioma + ", doblaje_si_no=" + doblaje_si_no + ", subtitulos_si_no=" + subtitulos_si_no + '}';
     }
 
+    
+    
+    
    
     
     
