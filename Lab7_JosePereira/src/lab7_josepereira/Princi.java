@@ -9,7 +9,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
 
 /**
  *
@@ -36,10 +39,57 @@ public class Princi extends javax.swing.JFrame {
 
         princi = new javax.swing.JDialog();
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
+        pelisbb = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        tf_nombre_peli = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        sp_duracion_pelois = new javax.swing.JSpinner();
+        jLabel8 = new javax.swing.JLabel();
+        wombo_combo_subs_pelis = new javax.swing.JComboBox<>();
+        jLabel9 = new javax.swing.JLabel();
+        tf_actores_pelis = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        tf_director_pelis = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        tf_compa_pelis = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        tf_idioma_pelis = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        wombo_combo_Peliculas1 = new javax.swing.JComboBox<>();
+        jLabel15 = new javax.swing.JLabel();
+        wombo_combo_doblaje_pelis = new javax.swing.JComboBox<>();
+        jButton2 = new javax.swing.JButton();
+        series = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        tf_nombre_serie = new javax.swing.JTextField();
+        sp_duracion_serie = new javax.swing.JSpinner();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        tf_categoria_serie = new javax.swing.JTextField();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        sp_temps_series = new javax.swing.JSpinner();
+        jLabel22 = new javax.swing.JLabel();
+        tf_productora_serie = new javax.swing.JTextField();
+        jLabel23 = new javax.swing.JLabel();
+        tf_idioma_serie = new javax.swing.JTextField();
+        wombo_combo_subs_series = new javax.swing.JComboBox<>();
+        jLabel24 = new javax.swing.JLabel();
+        wombo_combo_doblaje_serie = new javax.swing.JComboBox<>();
+        jLabel25 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        tf_actores_series = new javax.swing.JTextField();
+        arbol = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jt_nesflis = new javax.swing.JTree();
+        jButton5 = new javax.swing.JButton();
+        logout = new javax.swing.JPanel();
+        jButton4 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         tf_user = new javax.swing.JTextField();
@@ -47,63 +97,354 @@ public class Princi extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 506, Short.MAX_VALUE)
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        jLabel4.setText("Crear Pelicula");
+
+        jLabel6.setText("Nombre");
+
+        jLabel7.setText("Duracion");
+
+        sp_duracion_pelois.setModel(new javax.swing.SpinnerNumberModel(40, 0, null, 1));
+
+        jLabel8.setText("Categoria");
+
+        wombo_combo_subs_pelis.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Si", "No" }));
+
+        jLabel9.setText("Actores Principales");
+
+        jLabel10.setText("Usando ,");
+
+        jLabel11.setText("Director");
+
+        jLabel12.setText("Compania");
+
+        tf_compa_pelis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_compa_pelisActionPerformed(evt);
+            }
+        });
+
+        jLabel13.setText("Idioma");
+
+        jLabel14.setText("Doblaje ?");
+
+        wombo_combo_Peliculas1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Suspenso", "Terror", "Accion", "Romanticas", "Ciencia Ficcion", "Animacion", "Fantasia" }));
+
+        jLabel15.setText("Subtitulos");
+
+        wombo_combo_doblaje_pelis.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Si", "No" }));
+
+        jButton2.setText("Crear Peliculas");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pelisbbLayout = new javax.swing.GroupLayout(pelisbb);
+        pelisbb.setLayout(pelisbbLayout);
+        pelisbbLayout.setHorizontalGroup(
+            pelisbbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pelisbbLayout.createSequentialGroup()
+                .addGroup(pelisbbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pelisbbLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(pelisbbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel10)
+                            .addGroup(pelisbbLayout.createSequentialGroup()
+                                .addGroup(pelisbbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel9)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel11))
+                                .addGap(18, 18, 18)
+                                .addGroup(pelisbbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(tf_nombre_peli, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(pelisbbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(tf_director_pelis, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(tf_actores_pelis, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(wombo_combo_Peliculas1, javax.swing.GroupLayout.Alignment.LEADING, 0, 224, Short.MAX_VALUE))
+                                    .addComponent(sp_duracion_pelois, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(33, 33, 33)
+                                .addGroup(pelisbbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(pelisbbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(pelisbbLayout.createSequentialGroup()
+                                            .addGroup(pelisbbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jLabel14)
+                                                .addComponent(jLabel13))
+                                            .addGap(18, 18, 18)
+                                            .addGroup(pelisbbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(tf_idioma_pelis, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(wombo_combo_doblaje_pelis, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGroup(pelisbbLayout.createSequentialGroup()
+                                            .addComponent(jLabel15)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(wombo_combo_subs_pelis, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(pelisbbLayout.createSequentialGroup()
+                                        .addComponent(jLabel12)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(tf_compa_pelis, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(1, 1, 1))))
+                            .addGroup(pelisbbLayout.createSequentialGroup()
+                                .addGap(206, 206, 206)
+                                .addComponent(jLabel4))))
+                    .addGroup(pelisbbLayout.createSequentialGroup()
+                        .addGap(331, 331, 331)
+                        .addComponent(jButton2)))
+                .addContainerGap(144, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 338, Short.MAX_VALUE)
+        pelisbbLayout.setVerticalGroup(
+            pelisbbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pelisbbLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel4)
+                .addGap(74, 74, 74)
+                .addGroup(pelisbbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(tf_nombre_peli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel14)
+                    .addComponent(wombo_combo_doblaje_pelis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
+                .addGroup(pelisbbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(sp_duracion_pelois, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13)
+                    .addComponent(tf_idioma_pelis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(34, 34, 34)
+                .addGroup(pelisbbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(wombo_combo_Peliculas1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel15)
+                    .addComponent(wombo_combo_subs_pelis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
+                .addGroup(pelisbbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(tf_actores_pelis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12)
+                    .addComponent(tf_compa_pelis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel10)
+                .addGap(26, 26, 26)
+                .addGroup(pelisbbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(tf_director_pelis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
+                .addComponent(jButton2))
         );
 
-        jTabbedPane1.addTab("Pelicula", jPanel1);
+        jTabbedPane1.addTab("Peliculas", pelisbb);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 506, Short.MAX_VALUE)
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        jLabel5.setText("Crear Series");
+
+        jLabel17.setText("Nombre");
+
+        sp_duracion_serie.setModel(new javax.swing.SpinnerNumberModel(40, 0, null, 1));
+
+        jLabel18.setText("Duracion");
+
+        jLabel19.setText("Categoria");
+
+        jLabel20.setText("Numero");
+
+        jLabel21.setText("Temporadas");
+
+        sp_temps_series.setModel(new javax.swing.SpinnerNumberModel(1, 0, null, 1));
+
+        jLabel22.setText("Productora");
+
+        jLabel23.setText("Idioma Original");
+
+        wombo_combo_subs_series.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Si", "No" }));
+
+        jLabel24.setText("Subtitulos ?");
+
+        wombo_combo_doblaje_serie.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Si", "No" }));
+
+        jLabel25.setText("Doblaje ?");
+
+        jButton3.setText("Crear Serie");
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3MouseClicked(evt);
+            }
+        });
+
+        jLabel16.setText("Usando ,");
+
+        jLabel26.setText("Actores Principales");
+
+        javax.swing.GroupLayout seriesLayout = new javax.swing.GroupLayout(series);
+        series.setLayout(seriesLayout);
+        seriesLayout.setHorizontalGroup(
+            seriesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(seriesLayout.createSequentialGroup()
+                .addGroup(seriesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(seriesLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(seriesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(seriesLayout.createSequentialGroup()
+                                .addGroup(seriesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(seriesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabel18)
+                                        .addComponent(jLabel19)
+                                        .addComponent(jLabel17))
+                                    .addComponent(jLabel20)
+                                    .addComponent(jLabel22))
+                                .addGap(38, 38, 38)
+                                .addGroup(seriesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(sp_temps_series, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tf_nombre_serie, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
+                                    .addComponent(sp_duracion_serie, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tf_categoria_serie)
+                                    .addComponent(tf_productora_serie)))
+                            .addComponent(jLabel21))
+                        .addGap(60, 60, 60)
+                        .addGroup(seriesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, seriesLayout.createSequentialGroup()
+                                .addComponent(jLabel24)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(wombo_combo_subs_series, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, seriesLayout.createSequentialGroup()
+                                .addComponent(jLabel25)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(wombo_combo_doblaje_serie, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, seriesLayout.createSequentialGroup()
+                                .addComponent(jLabel23)
+                                .addGap(18, 18, 18)
+                                .addComponent(tf_idioma_serie, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel16)
+                            .addGroup(seriesLayout.createSequentialGroup()
+                                .addComponent(jLabel26)
+                                .addGap(18, 18, 18)
+                                .addComponent(tf_actores_series))))
+                    .addGroup(seriesLayout.createSequentialGroup()
+                        .addGap(246, 246, 246)
+                        .addComponent(jLabel5))
+                    .addGroup(seriesLayout.createSequentialGroup()
+                        .addGap(350, 350, 350)
+                        .addComponent(jButton3)))
+                .addContainerGap(110, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 338, Short.MAX_VALUE)
+        seriesLayout.setVerticalGroup(
+            seriesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(seriesLayout.createSequentialGroup()
+                .addGap(52, 52, 52)
+                .addComponent(jLabel5)
+                .addGap(75, 75, 75)
+                .addGroup(seriesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel17)
+                    .addComponent(tf_nombre_serie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel23)
+                    .addComponent(tf_idioma_serie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
+                .addGroup(seriesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(seriesLayout.createSequentialGroup()
+                        .addGroup(seriesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel18)
+                            .addComponent(sp_duracion_serie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(31, 31, 31)
+                        .addGroup(seriesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel19)
+                            .addComponent(tf_categoria_serie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel24)
+                            .addComponent(wombo_combo_subs_series, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(seriesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel25)
+                        .addComponent(wombo_combo_doblaje_serie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(31, 31, 31)
+                .addGroup(seriesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(seriesLayout.createSequentialGroup()
+                        .addGroup(seriesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel20)
+                            .addComponent(sp_temps_series, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(14, 14, 14)
+                        .addComponent(jLabel21))
+                    .addGroup(seriesLayout.createSequentialGroup()
+                        .addGroup(seriesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel26)
+                            .addComponent(tf_actores_series, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel16)))
+                .addGap(29, 29, 29)
+                .addGroup(seriesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel22)
+                    .addComponent(tf_productora_serie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addComponent(jButton3)
+                .addGap(21, 21, 21))
         );
 
-        jTabbedPane1.addTab("Serie", jPanel2);
+        jTabbedPane1.addTab("Series", series);
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 506, Short.MAX_VALUE)
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Nesflis");
+        jt_nesflis.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jScrollPane1.setViewportView(jt_nesflis);
+
+        jButton5.setText("Ver Detalles");
+        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton5MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout arbolLayout = new javax.swing.GroupLayout(arbol);
+        arbol.setLayout(arbolLayout);
+        arbolLayout.setHorizontalGroup(
+            arbolLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, arbolLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
+            .addGroup(arbolLayout.createSequentialGroup()
+                .addGap(367, 367, 367)
+                .addComponent(jButton5)
+                .addContainerGap(374, Short.MAX_VALUE))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 338, Short.MAX_VALUE)
+        arbolLayout.setVerticalGroup(
+            arbolLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(arbolLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 463, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addComponent(jButton5)
+                .addContainerGap())
         );
 
-        jTabbedPane1.addTab("Arbol", jPanel3);
+        jTabbedPane1.addTab("Arbol", arbol);
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 506, Short.MAX_VALUE)
+        jButton4.setText("Salir");
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout logoutLayout = new javax.swing.GroupLayout(logout);
+        logout.setLayout(logoutLayout);
+        logoutLayout.setHorizontalGroup(
+            logoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(logoutLayout.createSequentialGroup()
+                .addGap(369, 369, 369)
+                .addComponent(jButton4)
+                .addContainerGap(414, Short.MAX_VALUE))
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 338, Short.MAX_VALUE)
+        logoutLayout.setVerticalGroup(
+            logoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, logoutLayout.createSequentialGroup()
+                .addContainerGap(274, Short.MAX_VALUE)
+                .addComponent(jButton4)
+                .addGap(247, 247, 247))
         );
 
-        jTabbedPane1.addTab("Logout", jPanel4);
+        jTabbedPane1.addTab("Logout", logout);
 
         javax.swing.GroupLayout princiLayout = new javax.swing.GroupLayout(princi.getContentPane());
         princi.getContentPane().setLayout(princiLayout);
         princiLayout.setHorizontalGroup(
             princiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(princiLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, princiLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jTabbedPane1)
                 .addContainerGap())
@@ -191,9 +532,15 @@ public class Princi extends javax.swing.JFrame {
         ap.cargarArchivo();
         int aux = 0;
         int r = 0;
+
         System.out.println(ap.getListaPersonas());
         for (Persona p : ap.getListaPersonas()) {
             if (p.getNombre().equals(tf_user.getText()) && p.getContra().equals(tf_contra.getText())) {
+                try {
+                    arbol_gei();
+                } catch (IOException ex) {
+                    Logger.getLogger(Princi.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 princi.setModal(true);
                 princi.pack();
                 princi.setLocationRelativeTo(this);
@@ -201,6 +548,7 @@ public class Princi extends javax.swing.JFrame {
                 r = r + 14;
                 tf_user.setText("");
                 tf_contra.setText("");
+
             } else {
                 if (r == 1) {
                     JOptionPane.showMessageDialog(this, "Usuario no valido");
@@ -210,6 +558,105 @@ public class Princi extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_jButton1MouseClicked
+
+    private void tf_compa_pelisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_compa_pelisActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_compa_pelisActionPerformed
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        // TODO add your handling code here:
+        administrar_peliculas ap = new administrar_peliculas("./Peliculas.txt");
+        ap.cargarArchivo();
+        //(String nombre, int duracion_minutos, String Categoria, ArrayList<Actores_Principales_Pelis> Actores_Principales, 
+        //String Director, String Compania, String idioma, String doblaje_si_no, String subtitulos_si_no
+        ArrayList<Peliculas> _fin = new ArrayList();
+        String nombre = tf_nombre_peli.getText();
+        int duracion = (int) sp_duracion_pelois.getValue();
+        String categoria = wombo_combo_Peliculas1.getSelectedItem().toString();
+        String actores = tf_actores_pelis.getText();
+        String[] acs = actores.split(",");
+        ArrayList<Actores_Principales_Pelis> temp = new ArrayList();
+        for (int i = 0; i < acs.length; i++) {
+            temp.add(new Actores_Principales_Pelis(acs[i]));
+        }
+        String director = tf_director_pelis.getText();
+        String compa = tf_compa_pelis.getText();
+        String idioma = tf_idioma_pelis.getText();
+        String doblaje = wombo_combo_doblaje_pelis.getSelectedItem().toString();
+        String subs = wombo_combo_subs_pelis.getSelectedItem().toString();
+        _fin.add(new Peliculas(nombre, duracion, categoria, temp, director, compa, idioma, doblaje, subs));
+        ap.getListaPeliculas().add(_fin.get(0));
+        try {
+            ap.escribirArchivo();
+            JOptionPane.showMessageDialog(this, "Pelicula Creada Correctamente");
+            try {
+                arbol_gei();
+            } catch (IOException ex) {
+                Logger.getLogger(Princi.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(this, "Hubo un error al Crear la Pelicula");
+            Logger.getLogger(Princi.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton2MouseClicked
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        // TODO add your handling code here:
+        //String nombre, int duracion_minutos, String Categoria, ArrayList<Actores_Principales_Series> Actores_Principales, 
+        //int num_temporadas, String productora, String idioma_original, String doblaje_si_no, String subt_si_no
+        administrar_series ap = new administrar_series("./Series.txt");
+        ap.cargarArchivo();
+        ArrayList<Series> fin = new ArrayList();
+        String nombre = tf_nombre_serie.getText();
+        int duracion = (int) sp_duracion_serie.getValue();
+        String categoria = tf_categoria_serie.getText();
+        String actores = tf_actores_series.getText();
+        String[] acs = actores.split(",");
+        ArrayList<Actores_Principales_Series> temp = new ArrayList();
+        for (int i = 0; i < acs.length; i++) {
+            temp.add(new Actores_Principales_Series(acs[i]));
+        }
+        int temps = (int) sp_temps_series.getValue();
+        String productora = tf_productora_serie.getText();
+        String idioma = tf_idioma_serie.getText();
+        String doblaje = wombo_combo_doblaje_serie.getSelectedItem().toString();
+        String subs = wombo_combo_subs_series.getSelectedItem().toString();
+        fin.add(new Series(nombre, duracion, categoria, temp, temps, productora, idioma, doblaje, subs));
+        ap.getListaSeries().add(fin.get(0));
+        try {
+            ap.escribirArchivo();
+            JOptionPane.showMessageDialog(this, "Series Creada Correctamente");
+            try {
+                arbol_gei();
+            } catch (IOException ex) {
+                Logger.getLogger(Princi.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(this, "Hubo un error al Crear la Serie");
+            Logger.getLogger(Princi.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton3MouseClicked
+
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+        princi.dispose();
+    }//GEN-LAST:event_jButton4MouseClicked
+
+    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
+        // TODO add your handling code here:
+        DefaultTreeModel modeloARBOL = (DefaultTreeModel) jt_nesflis.getModel();
+        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modeloARBOL.getRoot();
+        String opc2 = JOptionPane.showInputDialog("Ingrese la posicion de que desea Visualizar 0=Peliculas 1=Series");
+        String opc22 = JOptionPane.showInputDialog("Ingrese la posicion de la Categoria que desea Visualizar");
+        String opc222 = JOptionPane.showInputDialog("Ingrese la posicion de la Pelicula que desea Visualizar");
+        int q = Integer.parseInt(opc2);
+        int q2 = Integer.parseInt(opc22);
+        int q22 = Integer.parseInt(opc222);
+        if (q == 0) {
+            nodo_seleccionado = ((Peliculas) ((DefaultMutableTreeNode) raiz.getChildAt(q).getChildAt(q2).getChildAt(q22)).getUserObject());
+            JOptionPane.showMessageDialog(this,"Categoria "+nodo_seleccionado.getCategoria()+"\nCompania"+nodo_seleccionado.getCompania());
+        }
+
+    }//GEN-LAST:event_jButton5MouseClicked
 
     /**
      * @param args the command line arguments
@@ -241,30 +688,77 @@ public class Princi extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                try {
-                    crear_pelis();
-                    crear_series();
-                } catch (IOException ex) {
-                    Logger.getLogger(Princi.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                // try {
+                //crear_pelis();
+                // crear_series();
+                // } catch (IOException ex) {
+                //       Logger.getLogger(Princi.class.getName()).log(Level.SEVERE, null, ex);
+                //  }
                 new Princi().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel arbol;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTree jt_nesflis;
+    private javax.swing.JPanel logout;
+    private javax.swing.JPanel pelisbb;
     private javax.swing.JDialog princi;
+    private javax.swing.JPanel series;
+    private javax.swing.JSpinner sp_duracion_pelois;
+    private javax.swing.JSpinner sp_duracion_serie;
+    private javax.swing.JSpinner sp_temps_series;
+    private javax.swing.JTextField tf_actores_pelis;
+    private javax.swing.JTextField tf_actores_series;
+    private javax.swing.JTextField tf_categoria_serie;
+    private javax.swing.JTextField tf_compa_pelis;
     private javax.swing.JPasswordField tf_contra;
+    private javax.swing.JTextField tf_director_pelis;
+    private javax.swing.JTextField tf_idioma_pelis;
+    private javax.swing.JTextField tf_idioma_serie;
+    private javax.swing.JTextField tf_nombre_peli;
+    private javax.swing.JTextField tf_nombre_serie;
+    private javax.swing.JTextField tf_productora_serie;
     private javax.swing.JTextField tf_user;
+    private javax.swing.JComboBox<String> wombo_combo_Peliculas1;
+    private javax.swing.JComboBox<String> wombo_combo_doblaje_pelis;
+    private javax.swing.JComboBox<String> wombo_combo_doblaje_serie;
+    private javax.swing.JComboBox<String> wombo_combo_subs_pelis;
+    private javax.swing.JComboBox<String> wombo_combo_subs_series;
     // End of variables declaration//GEN-END:variables
         public static void crear_pelis() throws IOException {
         //Suspenso  , Terror , Acción , Románticas , Ciencia Ficción  , Animación  ,Fantasía
@@ -313,4 +807,87 @@ public class Princi extends javax.swing.JFrame {
         ap.setListaSeries(temp);
         ap.escribirArchivo();
     }
+
+    public void arbol_gei() throws IOException {
+        //javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Nesflis");
+        DefaultTreeModel modeloARBOL = (DefaultTreeModel) jt_nesflis.getModel();
+        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modeloARBOL.getRoot();
+        raiz.removeAllChildren();
+        administrar_series series = new administrar_series("./Series.txt");
+        administrar_peliculas pelis = new administrar_peliculas("./Peliculas.txt");
+        series.cargarArchivo();
+        pelis.cargarArchivo();
+        //String nombre, int duracion_minutos, String Categoria, ArrayList<Actores_Principales_Pelis> Actores_Principales, 
+        //String Director, String Compania, String idioma, String doblaje_si_no, String subtitulos_si_no
+        if (pelis.getListaPeliculas().size() > 0) {
+            //DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modeloARBOL.getRoot();
+            DefaultMutableTreeNode raiz2 = new DefaultMutableTreeNode("Peliculas");
+            raiz.add(raiz2);
+            for (Peliculas pe : pelis.getListaPeliculas()) {
+                String nombre = pe.getNombre();
+                int duracion = pe.getDuracion_minutos();
+                String categoria = pe.getCategoria();
+                //Arreiist
+                String Director = pe.getDirector();
+                String compania = pe.getCompania();
+                String idioma = pe.getIdioma();
+                String doblaje = pe.getDoblaje_si_no();
+                String subs = pe.getSubtitulos_si_no();
+                int centinela = -1;
+                //que hace el for
+                for (int i = 0; i < raiz2.getChildCount(); i++) {
+                    if (raiz2.getChildAt(i).toString().equals(categoria)) {
+                        DefaultMutableTreeNode p = new DefaultMutableTreeNode(new Peliculas(nombre, duracion, categoria, pe.getActores_Principales(), Director, compania, idioma, doblaje, subs));
+                        ((DefaultMutableTreeNode) raiz2.getChildAt(i)).add(p);
+                        centinela = 1;
+                    }
+                }
+                if (centinela == -1) {
+                    DefaultMutableTreeNode n = new DefaultMutableTreeNode(categoria);
+                    DefaultMutableTreeNode p = new DefaultMutableTreeNode(new Peliculas(nombre, duracion, categoria, pe.getActores_Principales(), Director, compania, idioma, doblaje, subs));
+                    n.add(p);
+                    raiz2.add(n);
+                }
+                modeloARBOL.reload();
+            }
+
+            if (series.getListaSeries().size() > 0) {
+                raiz = (DefaultMutableTreeNode) modeloARBOL.getRoot();
+                DefaultMutableTreeNode raiz3 = new DefaultMutableTreeNode("Series");
+                raiz.add(raiz3);
+                for (Series s : series.getListaSeries()) {
+                    //String nombre, int duracion_minutos, String Categoria, ArrayList<Actores_Principales_Series> Actores_Principales, 
+                    //int num_temporadas, String productora, String idioma_original, String doblaje_si_no, String subt_si_no
+
+                    String nombre = s.getNombre();
+                    int duracion = s.getDuracion_minutos();
+                    String categoria = s.getCategoria();
+                    //Arreiist
+                    int temps = s.getNum_temporadas();
+                    String produ = s.getProductora();
+                    String idioma = s.getIdioma_original();
+                    String doblaje = s.getDoblaje_si_no();
+                    String subt = s.getSubt_si_no();
+                    int centinela = -1;
+                    //que hace el for
+                    for (int i = 0; i < raiz3.getChildCount(); i++) {
+                        if (raiz3.getChildAt(i).toString().equals(categoria)) {
+                            DefaultMutableTreeNode p = new DefaultMutableTreeNode(new Series(nombre, duracion, categoria, s.getActores_Principales(), temps, produ, idioma, doblaje, subt));
+                            ((DefaultMutableTreeNode) raiz3.getChildAt(i)).add(p);
+                            centinela = 1;
+                        }
+                    }
+                    if (centinela == -1) {
+                        DefaultMutableTreeNode n = new DefaultMutableTreeNode(categoria);
+                        DefaultMutableTreeNode p = new DefaultMutableTreeNode(new Series(nombre, duracion, categoria, s.getActores_Principales(), temps, produ, idioma, doblaje, subt));
+                        n.add(p);
+                        raiz3.add(n);
+                    }
+                    modeloARBOL.reload();
+                }
+            }
+        }
+
+    }
+    Peliculas nodo_seleccionado;
 }
