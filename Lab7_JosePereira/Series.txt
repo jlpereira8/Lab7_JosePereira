@@ -1,0 +1,1 @@
+Cards;60;Accion;Penels,Brolio,Rodrisex,;10;Soby;Ingles;Si;No;Desencanto;60;Comedia;Penaldo,Braulio,Rodrix,;5;Sony;Frances;No;No;Encantado;60;Comedia;Penels,Brolio,Rodrisex,;3;Acer;Espanol;No;Si;Amnesia;60;Terror;Penaldo,Braulio,Rodrix,;5;Sony;Portugues;No;No;Omenclatura;60;Accion;Penaldo,Braulio,Rodrix,;5;Rony;Frances;Si;Si;

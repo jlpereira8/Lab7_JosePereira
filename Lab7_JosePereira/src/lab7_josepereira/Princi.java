@@ -5,6 +5,10 @@
  */
 package lab7_josepereira;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,6 +22,7 @@ public class Princi extends javax.swing.JFrame {
      */
     public Princi() {
         initComponents();
+
     }
 
     /**
@@ -185,7 +190,7 @@ public class Princi extends javax.swing.JFrame {
         administrar_personas ap = new administrar_personas("./Personas.txt");
         ap.cargarArchivo();
         int aux = 0;
-        int r=0;
+        int r = 0;
         System.out.println(ap.getListaPersonas());
         for (Persona p : ap.getListaPersonas()) {
             if (p.getNombre().equals(tf_user.getText()) && p.getContra().equals(tf_contra.getText())) {
@@ -193,17 +198,17 @@ public class Princi extends javax.swing.JFrame {
                 princi.pack();
                 princi.setLocationRelativeTo(this);
                 princi.setVisible(true);
-                r=r+14;
+                r = r + 14;
                 tf_user.setText("");
                 tf_contra.setText("");
             } else {
-                if (r==1) {
+                if (r == 1) {
                     JOptionPane.showMessageDialog(this, "Usuario no valido");
-                }       
+                }
                 r++;
             }
         }
-      
+
     }//GEN-LAST:event_jButton1MouseClicked
 
     /**
@@ -236,6 +241,12 @@ public class Princi extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                try {
+                    crear_pelis();
+                    crear_series();
+                } catch (IOException ex) {
+                    Logger.getLogger(Princi.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 new Princi().setVisible(true);
             }
         });
@@ -255,4 +266,51 @@ public class Princi extends javax.swing.JFrame {
     private javax.swing.JPasswordField tf_contra;
     private javax.swing.JTextField tf_user;
     // End of variables declaration//GEN-END:variables
+        public static void crear_pelis() throws IOException {
+        //Suspenso  , Terror , Acción , Románticas , Ciencia Ficción  , Animación  ,Fantasía
+        administrar_peliculas ap = new administrar_peliculas("./Peliculas.txt");
+        ap.cargarArchivo();
+        ArrayList<Peliculas> temp = new ArrayList();
+        ArrayList<Actores_Principales_Pelis> actores1 = new ArrayList();
+        ArrayList<Actores_Principales_Pelis> actores2 = new ArrayList();
+        actores1.add(new Actores_Principales_Pelis("Penaldo"));
+        actores1.add(new Actores_Principales_Pelis("Braulio"));
+        actores1.add(new Actores_Principales_Pelis("Rodrix"));
+        actores2.add(new Actores_Principales_Pelis("Penels"));
+        actores2.add(new Actores_Principales_Pelis("Brolio"));
+        actores2.add(new Actores_Principales_Pelis("Rodrisex"));
+        //String nombre, int duracion_minutos, String Categoria, ArrayList<Actores_Principales_Pelis> Actores_Principales, 
+        //String Director, String Compania, String idioma, String doblaje_si_no, String subtitulos_si_no
+        temp.add(new Peliculas("Anaconda", 122, "Terror", actores1, "Benjamin", "Sony", "Ingles", "Si", "Si"));
+        temp.add(new Peliculas("Conjuro", 143, "Terror", actores2, "Pvtonix", "Acer", "Ingles", "No", "Si"));
+        temp.add(new Peliculas("Deadpool", 111, "Accion", actores1, "Totox", "Sornds", "Espanol", "Si", "No"));
+        temp.add(new Peliculas("Titanes", 109, "Animacion", actores2, "Benanix", "Apple", "Ingles", "No", "No"));
+        temp.add(new Peliculas("Amityville", 162, "Terror", actores2, "Polensa", "Osny", "Frances", "Si", "Si"));
+        ap.setListaPeliculas(temp);
+        ap.escribirArchivo();
+    }
+
+    public static void crear_series() throws IOException {
+        administrar_series ap = new administrar_series("./Series.txt");
+        ap.cargarArchivo();
+        ArrayList<Series> temp = new ArrayList();
+        //String nombre, int duracion_minutos, String Categoria, ArrayList<Actores_Principales_Series> Actores_Principales, 
+        //int num_temporadas, String productora, String idioma_original, String doblaje_si_no, String subt_si_no
+        ArrayList<Actores_Principales_Series> actores1 = new ArrayList();
+        ArrayList<Actores_Principales_Series> actores2 = new ArrayList();
+        actores1.add(new Actores_Principales_Series("Penaldo"));
+        actores1.add(new Actores_Principales_Series("Braulio"));
+        actores1.add(new Actores_Principales_Series("Rodrix"));
+        actores2.add(new Actores_Principales_Series("Penels"));
+        actores2.add(new Actores_Principales_Series("Brolio"));
+        actores2.add(new Actores_Principales_Series("Rodrisex"));
+        //
+        temp.add(new Series("Cards", 60, "Accion", actores2, 10, "Soby", "Ingles", "Si", "No"));
+        temp.add(new Series("Desencanto", 60, "Comedia", actores1, 5, "Sony", "Frances", "No", "No"));
+        temp.add(new Series("Encantado", 60, "Comedia", actores2, 3, "Acer", "Espanol", "No", "Si"));
+        temp.add(new Series("Amnesia", 60, "Terror", actores1, 5, "Sony", "Portugues", "No", "No"));
+        temp.add(new Series("Omenclatura", 60, "Accion", actores1, 5, "Rony", "Frances", "Si", "Si"));
+        ap.setListaSeries(temp);
+        ap.escribirArchivo();
+    }
 }

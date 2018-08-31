@@ -16,7 +16,7 @@ public class Series {
     private String nombre;
     private int duracion_minutos;
     private String Categoria;
-    private ArrayList<String> Actores_Principales;
+    private ArrayList<Actores_Principales_Series> Actores_Principales;
     private int num_temporadas;
     private String productora;
     private String idioma_original;
@@ -26,7 +26,7 @@ public class Series {
     public Series() {
     }
 
-    public Series(String nombre, int duracion_minutos, String Categoria, ArrayList<String> Actores_Principales, int num_temporadas, String productora, String idioma_original, String doblaje_si_no, String subt_si_no) {
+    public Series(String nombre, int duracion_minutos, String Categoria, ArrayList<Actores_Principales_Series> Actores_Principales, int num_temporadas, String productora, String idioma_original, String doblaje_si_no, String subt_si_no) {
         this.nombre = nombre;
         this.duracion_minutos = duracion_minutos;
         this.Categoria = Categoria;
@@ -62,11 +62,11 @@ public class Series {
         this.Categoria = Categoria;
     }
 
-    public ArrayList<String> getActores_Principales() {
+    public ArrayList<Actores_Principales_Series> getActores_Principales() {
         return Actores_Principales;
     }
 
-    public void setActores_Principales(ArrayList<String> Actores_Principales) {
+    public void setActores_Principales(ArrayList<Actores_Principales_Series> Actores_Principales) {
         this.Actores_Principales = Actores_Principales;
     }
 
@@ -115,5 +115,6 @@ public class Series {
         return "Series{" + "nombre=" + nombre + ", duracion_minutos=" + duracion_minutos + ", Categoria=" + Categoria + ", Actores_Principales=" + Actores_Principales + ", num_temporadas=" + num_temporadas + ", productora=" + productora + ", idioma_original=" + idioma_original + ", doblaje_si_no=" + doblaje_si_no + ", subt_si_no=" + subt_si_no + '}';
     }
 
+   
    
 }
